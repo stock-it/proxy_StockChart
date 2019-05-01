@@ -3,8 +3,12 @@ const getSeconds = require('./helpers');
 
 const port = process.env.REDISPORT || 6379;
 const host = process.env.REDISHOST || '127.0.0.1';
+const password = process.env.REDISPW || null;
 // can set optional port/host as an argument to client
-const client = redis.createClient(port, host);
+const client = redis.createClient(port, host, {
+  password,
+  socket_keepalive: true
+});
 
 client.on('connect', () => {
   console.log(`Redis connected on port ${port}`)
