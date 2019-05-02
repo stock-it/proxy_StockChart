@@ -9,6 +9,10 @@ const port = process.env.PORT || 3000;
 mountRoutes(app);
 
 app.use('/stocks/:stockId', express.static(path.join(__dirname, 'public')));
+
+app.get('/loaderio-ef93a9ed5f0210211846370e21d3bf3a', (req, res) => {
+  res.send('loaderio-ef93a9ed5f0210211846370e21d3bf3a');
+})
 // app.use('/stocks/:ticker', express.static(path.join(__dirname, 'public')));
 
 // app.use('/api/ratings/:ticker', (req, res) => {
